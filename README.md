@@ -35,10 +35,10 @@ Host 192.168.2.21
 ### Connecting the nodes and hdfs setup
 1. The following code was run on every node that was created on SNIC Science Cloud
 
-        ```
-            sudo apt-get update
-            sudo apt-get upgrade 
-        ```
+```
+sudo apt-get update
+sudo apt-get upgrade 
+```        
 
 2. Next, from the master node. A security key was generated in order to connect to the worker node with passwordless login (ssh). The key was appended to the file "autorized\_keys". The same file was the copied to both the worker nodes.
 
