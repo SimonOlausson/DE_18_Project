@@ -1,4 +1,6 @@
 # DE_18_Project
+## content
+The file Project.ipynb is the file containing the relevant spark code for working with the dataset.
 
 ## Nodes 
 
