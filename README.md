@@ -35,7 +35,7 @@ Host 192.168.2.21
 ### Connecting the nodes and hdfs setup
 1. The following code was run on every node that was created on SNIC Science Cloud
 
-```
+```ruby
 sudo apt-get update
 sudo apt-get upgrade 
 ```        
