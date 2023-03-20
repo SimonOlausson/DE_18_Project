@@ -49,27 +49,28 @@ sudo apt-get upgrade
 5. Hadoop was installed on all nodes using the commande wget
 
 6. Hadoop was configured by adding the following text to the bashrc file
-        \begin{verbatim}
-            export HADOOP_HOME=/home/ubuntu/hadoop
-            export PATH=$PATH:$HADOOP_HOME/bin
-            export PATH=$PATH:$HADOOP_HOME/sbin
-            export HADOOP_MAPRED_HOME=${HADOOP_HOME}
-            export HADOOP_COMMON_HOME=${HADOOP_HOME}
-            export HADOOP_HDFS_HOME=${HADOOP_HOME}
-            export YARN_HOME=${HADOOP_HOME}
-        \end{verbatim}
+
+```ruby
+export HADOOP_HOME=/home/ubuntu/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+export HADOOP_MAPRED_HOME=${HADOOP_HOME}
+export HADOOP_COMMON_HOME=${HADOOP_HOME}
+export HADOOP_HDFS_HOME=${HADOOP_HOME}
+export YARN_HOME=${HADOOP_HOME}
+```
         
 7. Next, several files were edited in order to setup the Hadoop cluster. It was done on the master node and then copied to the worker nodes used the command scp. The files that were edited are as follows:
-    \begin{itemize}
-        \item ~/hadoop/etc/hadoop/hadoop-env.sh
-        \item ~/hadoop/etc/hadoop/core-site.xml
-        \item  ~/hadoop/etc/hadoop/hdfs-site.xml
-        \item ~/hadoop/etc/hadoop/yarn-site.xml
-    \end{itemize}
-     and on the master node, only, the following file was edited
-     \begin{itemize}
-         \item ~/hadoop/etc/hadoop/mapred-site.xm
-     \end{itemize}
+
+- ~/hadoop/etc/hadoop/hadoop-env.sh
+- ~/hadoop/etc/hadoop/core-site.xml
+- ~/hadoop/etc/hadoop/hdfs-site.xml
+- ~/hadoop/etc/hadoop/yarn-site.xml
+
+and on the master node, only, the following file was edited
+
+- ~/hadoop/etc/hadoop/mapred-site.xm
+
      
 8. A data folder was created on all nodes.
 
