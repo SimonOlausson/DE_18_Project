@@ -90,40 +90,42 @@ hdfs dfs -put <MillionSongDataset> <PathToHdfsDir>
 
 ### Spark cluster setup
 Following steps are for all nodes until told otherwise.
--	Update the node: 
-o	sudo apt update
--	Install the following packages: 
-o	sudo apt install openjdk-8-jdk-headless
-o	Check java version: java  -version
-o	sudo apt install python3-pip
-o	Check python version: python3 - -version
-o	sudo apt install net-tools
-Only for the master node and the worker nodes.
-Download and install Spark Apache, make sure all the nodes have the same version.
--	curl -O https://dlcdn.apache.org/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz
--	Unpack it: 
-o	tar xvf  spark-3.3.2-bin-hadoop3.tgz
--	Move the created folder “spark-3.3.2-bin-hadoop3”: 
-o	sudo mv spark-3.3.2-bin-hadoop3/ /opt/spark
--	Open “bashrc”: 
-o	sudo vim ~/.bashrc 
--	Add the following path to allow Spark related bash script to run from anywhere: 
-o	export SPARK_HOME=/opt/spark
-o	export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
--	Activate the changes:
-o	source ~/.bashrc
-Only the master.
--	Move to the folder “/opt/spark/conf”
--	Create a new file: 
-o	sudo vim spark-env.sh
--	Add the following in the newly created file:
-o	SPARK_MASTER_HOST=<master private IP>
--	You can now start the master node:
-o	start-master.sh
--	This will allow start a spark node web pages with the following URL:
-o	http://<master float IP>:8080
-Only the worker nodes.
--	Start the worker nodes:
-o	start-worker.sh spark://<master private IP>:7077
+
+1. Install the required packages using apt-get, in this case python3 and net-tools. Making sure that the version is the same on all nodes.
+
+
+2. Only for the master node and the worker nodes. Download and install Spark Apache, make sure all the nodes have the same version. This is done using the command wget. Unpacking the .tgz file is done with the command tar.
+
+3. Only for the master node and the worker nodes. Edit necessary files.
+- in /bashrc add
+```ruby
+export SPARK_HOME=/opt/spark
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+```
+and to activate the changes write the command 
+
+```ruby
+source ~/.bashrc
+```
+
+4. Only on the master node, create a new file in the path /opt/spark/conf called spark-env.sh and add the following.
+
+```ruby
+SPARK_MASTER_HOST=<master private IP>
+```
+5. Start the master node using the following command
+
+```ruby
+start-master.sh
+```
+
+This will also start a spark node web pages with the following URL: http://<master float IP>:8080
+        
+6. Only on the worker nodes, start the spark nodes using the following command:
+
+```ruby
+start-worker.sh spark://<master private IP>:7077
+```
+        
 A Spark cluster is now created.
 
