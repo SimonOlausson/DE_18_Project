@@ -34,20 +34,21 @@ Host 192.168.2.21
 
 ### Connecting the nodes and hdfs setup
 1. The following code was run on every node that was created on SNIC Science Cloud
-        \begin{verbatim}
+
+        ```
             sudo apt-get update
             sudo apt-get upgrade 
-        \end{verbatim}
+        ```
 
 2. Next, from the master node. A security key was generated in order to connect to the worker node with passwordless login (ssh). The key was appended to the file "autorized\_keys". The same file was the copied to both the worker nodes.
 
 3. All of the nodes and their priavate IP were then added to the /etc/hosts file on the master node.
 
-JDK1.8 was installed on all nodes using the commande apt-get
+4. JDK1.8 was installed on all nodes using the commande apt-get
 
-Hadoop was installed on all nodes using the commande wget
+5. Hadoop was installed on all nodes using the commande wget
 
-Hadoop was configured by adding the following text to the bashrc file
+6. Hadoop was configured by adding the following text to the bashrc file
         \begin{verbatim}
             export HADOOP_HOME=/home/ubuntu/hadoop
             export PATH=$PATH:$HADOOP_HOME/bin
@@ -58,7 +59,7 @@ Hadoop was configured by adding the following text to the bashrc file
             export YARN_HOME=${HADOOP_HOME}
         \end{verbatim}
         
-Next, several files were edited in order to setup the Hadoop cluster. It was done on the master node and then copied to the worker nodes used the command scp. The files that were edited are as follows:
+7. Next, several files were edited in order to setup the Hadoop cluster. It was done on the master node and then copied to the worker nodes used the command scp. The files that were edited are as follows:
     \begin{itemize}
         \item ~/hadoop/etc/hadoop/hadoop-env.sh
         \item ~/hadoop/etc/hadoop/core-site.xml
@@ -70,10 +71,10 @@ Next, several files were edited in order to setup the Hadoop cluster. It was don
          \item ~/hadoop/etc/hadoop/mapred-site.xm
      \end{itemize}
      
-A data folder was created on all nodes.
+8. A data folder was created on all nodes.
 
-"masters" and "workers" files were created on all nodes. the private IP of master and worker nodes were added to the files.
+9. "masters" and "workers" files were created on all nodes. the private IP of master and worker nodes were added to the files.
 
-The HDFS was formated and then the hdfs was started from the master node.
+10. The HDFS was formated and then the hdfs was started from the master node.
 
-In order to see that the correct nodes have been started the commande jps was run.
+11. In order to see that the correct nodes have been started the commande jps was run.
